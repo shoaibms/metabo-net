@@ -213,7 +213,7 @@ Our metabolomics data analysis pipeline consists of four major phases, with comp
 ```mermaid
    graph TD
     %% Major Steps with darker shades
-    A([Raw Data]) --> B[Keep columns with ≥3 replicates]
+    A([Raw Data]) --> B[Keep columns with ≥3 reps]
     B --> C[Visualise missing values]
     C --> D[Test for MCAR<br>Little's MCAR test]
     D --> E[Test for MAR<br>Logistic Regression]
