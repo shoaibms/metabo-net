@@ -3,10 +3,10 @@
 *Uncovering the architectural principles of drought tolerance through integrated metabolomic-network analysis*
 
 ## 🎯 Project Overview
-This repository contains the analytical pipeline used to investigate how wheat plants adapt to drought stress through tissue-specific metabolic networks. Our study reveals that drought-tolerant wheat varieties maintain distinct molecular organizations in leaves versus roots - leaves show highly integrated networks optimized for rapid photosynthetic responses, while roots display modular networks suited for localized environmental adaptation. These architectural differences help explain how some wheat varieties better withstand drought conditions.
+This repository contains the analytical pipeline used to investigate how wheat plants adapt to drought stress through tissue-specific metabolic networks. Our study reveals that drought-tolerant wheat varieties maintain distinct molecular organisations in leaves versus roots - leaves show highly integrated networks optimised for rapid photosynthetic responses, while roots display modular networks suited for localised environmental adaptation. These architectural differences help explain how some wheat varieties better withstand drought conditions.
 
 Key findings:
-- Identified fundamental differences in how leaves and roots organize their molecular responses to drought
+- Identified fundamental differences in how leaves and roots organise their molecular responses to drought
 - Discovered that drought-tolerant wheat has ~40% denser leaf networks compared to roots
 - Found that leaf-root coordination changes over time as drought stress continues
 - Validated findings using rigorous statistical approaches
@@ -214,7 +214,7 @@ Our metabolomics data analysis pipeline consists of four major phases, with comp
    graph TD
     %% Major Steps with darker shades
     A([Raw Data]) --> B[Keep columns with ≥3 replicates]
-    B --> C[Visualize missing values]
+    B --> C[Visualise missing values]
     C --> D[Test for MCAR<br>Little's MCAR test]
     D --> E[Test for MAR<br>Logistic Regression]
     E --> F{Impute missing data}
@@ -224,12 +224,12 @@ Our metabolomics data analysis pipeline consists of four major phases, with comp
     H --> H1[EMD]
     H --> H2[Hellinger Distance]
     H --> H3[Calculate richness, Shannon entropy,<br>Simpson's diversity index, & sparsity]
-    H --> H4[Visualizations: Q-Q, ECDF, KDE plots]
+    H --> H4[Visualisations: Q-Q, ECDF, KDE plots]
     H1 & H2 & H3 & H4 --> I[Select best method:<br>Random Forest]
     I --> J{Outlier detection}
     J --> K[Methods: Z-Score, IQR, Isolation Forest,<br>Elliptic Envelope, Mahalanobis, Robust PCA]
     K --> L[Evaluate outlier detection methods]
-    L --> L1[PCA and t-SNE visualizations]
+    L --> L1[PCA and t-SNE visualisations]
     L --> L2[Plots of 30 most impacted variables]
     L --> L3[Number of outliers per method]
     L1 & L2 & L3 --> M[Select method: Isolation Forest]
@@ -239,7 +239,7 @@ Our metabolomics data analysis pipeline consists of four major phases, with comp
     P --> Q[Evaluate transformations]
     Q --> Q1[Metrics: CV, MA-transform,<br>RSD, rMAD]
     Q --> Q2[Normality tests:<br>Shapiro-Wilk, Anderson-Darling]
-    Q --> Q3[Visualize: Density plots]
+    Q --> Q3[Visualise: Density plots]
     Q1 & Q2 & Q3 --> R{Variable Selection}
     R --> S[Exclude variables with rMAD > 30%]
     S --> T([End: Clean Data])
