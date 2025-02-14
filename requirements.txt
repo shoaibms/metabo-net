@@ -1,0 +1,31 @@
+# Core Python Libraries
+pandas
+numpy
+matplotlib
+seaborn
+os
+
+# Statistical Analysis
+scipy
+statsmodels
+
+# Machine Learning & Imputation
+scikit-learn
+fancyimpute
+pyampute
+
+# Outlier Detection
+scipy
+sklearn
+
+# Visualization
+matplotlib
+seaborn
+plotly
+
+# Additional Libraries
+networkx
+openpyxl
+joblib
+tqdm
+rdkit

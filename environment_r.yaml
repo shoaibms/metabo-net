@@ -1,0 +1,40 @@
+name: r_env
+channels:
+  - conda-forge
+dependencies:
+  - r-base
+  - r-essentials
+  - r-dplyr
+  - r-missForest
+  - r-doParallel
+  - r-mice
+  - r-ComplexHeatmap
+  - r-Hmisc
+  - r-RColorBrewer
+  - r-bnlearn
+  - r-boot
+  - r-circlize
+  - r-coin
+  - r-cowplot
+  - r-data.table
+  - r-dtw
+  - r-effsize
+  - r-foreach
+  - r-ggplot2
+  - r-ggradar
+  - r-ggraph
+  - r-ggridges
+  - r-grid
+  - r-gridExtra
+  - r-igraph
+  - r-logger
+  - r-nparLD
+  - r-parallel
+  - r-patchwork
+  - r-plotly
+  - r-reshape2
+  - r-scales
+  - r-stats
+  - r-tidyr
+  - r-tidyverse
+  - r-viridis

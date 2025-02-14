@@ -1,0 +1,26 @@
+name: my_environment
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - pandas
+  - numpy
+  - matplotlib
+  - seaborn
+  - scipy
+  - statsmodels
+  - scikit-learn
+  - fancyimpute
+  - pyampute
+  - networkx
+  - openpyxl
+  - plotly
+  - rdkit
+  - joblib
+  - tqdm
+  - pip
+  - pip:
+      - community
+      - pickle
+
