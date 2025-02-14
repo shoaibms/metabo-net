@@ -209,7 +209,7 @@ Common issues and solutions:
 # 📈 Analysis Pipeline
 Our metabolomics data analysis pipeline consists of four major phases, with comprehensive preprocessing steps to ensure data quality and reliability.
 
-## Detailed Preprocessing Workflow
+## Detailed Data Preprocessing Workflow
 ```mermaid
    graph TD
     %% Major Steps with darker shades
