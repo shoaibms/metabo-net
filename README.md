@@ -112,7 +112,7 @@ graph TD
  │       └── func_group.py            # Functional group analysis
  │
  ├── 📂 3D_figures                    # Interactive plot
- ├── 📂 docs                          # Documentation 
+ ├── 📂 images                         # Images
  ├── requirements.txt                  # Dependencies
  ├── environment.yaml                  # Configuration 
  └── README.md                         # Project overview
