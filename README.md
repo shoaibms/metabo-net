@@ -245,10 +245,10 @@ Our metabolomics data analysis pipeline consists of four major phases, with comp
     S --> T([End: Clean Data])
 
     %% Styling
-    classDef majorStep fill:#0a2f0a,stroke:#0a2f0a,stroke-width:3px,color:#fff
-    classDef process fill:#e8f5e9,stroke:#81c784,stroke-width:1px
-    classDef selection fill:#c8e6c9,stroke:#81c784,stroke-width:1px
-    classDef endpoint fill:#f1f8f1,stroke:#81c784,stroke-width:2px
+    classDef majorStep fill:#1a472a,stroke:#1a472a,stroke-width:3px,color:#fff
+    classDef process fill:#afdbc5,stroke:#2d6a4f,stroke-width:1px
+    classDef selection fill:#95d5b2,stroke:#2d6a4f,stroke-width:1px
+    classDef endpoint fill:#d8f3dc,stroke:#2d6a4f,stroke-width:2px
 
     %% Apply styles to nodes
     class A,F,J,O,R majorStep
