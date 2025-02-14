@@ -207,7 +207,9 @@ Common issues and solutions:
 
 
 # 📈 Analysis Pipeline
+Our metabolomics data analysis pipeline consists of four major phases, with comprehensive preprocessing steps to ensure data quality and reliability.
 
+## Detailed Preprocessing Workflow
 ```mermaid
 graph TD
     A([Start: Raw Data]) --> B[Keep columns with ≥3 replicates]
@@ -245,14 +247,6 @@ graph TD
     linkStyle default stroke:#2e7d32,stroke-width:1px
 ```
 
-
-
-
-
-Our metabolomics data analysis pipeline consists of four major phases, with comprehensive preprocessing steps to ensure data quality and reliability.
-
-## Detailed Preprocessing Workflow
-![Detailed Data Preprocessing Workflow](media/image1.png)
 
 ## Pipeline Overview
 
