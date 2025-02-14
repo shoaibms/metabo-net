@@ -208,6 +208,47 @@ Common issues and solutions:
 
 # 📈 Analysis Pipeline
 
+```mermaid
+graph TD
+    A([Start: Raw Data]) --> B[Keep columns with ≥3 replicates]
+    B --> C[Visualize missing values]
+    C --> D[Test for MCAR]
+    D --> E[Test for MAR]
+    E --> F{Impute missing data}
+    F --> |R|G1[Random Forest, PMM]
+    F --> |Python|G2[kNN, Median, SVD]
+    G1 & G2 --> H[Evaluate methods]
+    H --> I([Select: Random Forest])
+    I --> J{Outlier detection}
+    J --> K[Evaluate methods]
+    K --> L([Select: Isolation Forest])
+    L --> M[Remove & re-impute]
+    M --> N{Transform data}
+    N --> O[Evaluate transforms]
+    O --> P{Variable Selection}
+    P --> Q[Exclude rMAD > 30%]
+    Q --> R([End: Clean Data])
+
+    %% Styling with green shades
+    classDef start fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    classDef process fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    classDef decision fill:#81c784,stroke:#2e7d32,stroke-width:2px
+    classDef selection fill:#4caf50,stroke:#2e7d32,stroke-width:2px,color:#fff
+    
+    %% Apply styles
+    class A,R start
+    class B,C,D,E,G1,G2,H,K,M,O,Q process
+    class F,J,N,P decision
+    class I,L selection
+
+    %% Edge styling
+    linkStyle default stroke:#2e7d32,stroke-width:1px
+```
+
+
+
+
+
 Our metabolomics data analysis pipeline consists of four major phases, with comprehensive preprocessing steps to ensure data quality and reliability.
 
 ## Detailed Preprocessing Workflow
