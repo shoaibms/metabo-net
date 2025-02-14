@@ -211,40 +211,45 @@ Our metabolomics data analysis pipeline consists of four major phases, with comp
 
 ## Detailed Preprocessing Workflow
 ```mermaid
-graph TD
-    A([Start: Raw Data]) --> B[Keep columns with ≥3 replicates]
+    graph TD
+    %% Major Steps (darker green)
+    A([Raw Data])
+    F{Impute missing data}
+    J{Outlier detection}
+    N{Data Transformation}
+    P{Variable Selection}
+
+    %% Substeps and connections
+    A --> B[Keep columns with ≥3 replicates]
     B --> C[Visualize missing values]
     C --> D[Test for MCAR]
     D --> E[Test for MAR]
-    E --> F{Impute missing data}
+    E --> F
     F --> |R|G1[Random Forest, PMM]
     F --> |Python|G2[kNN, Median, SVD]
     G1 & G2 --> H[Evaluate methods]
     H --> I([Select: Random Forest])
-    I --> J{Outlier detection}
+    I --> J
     J --> K[Evaluate methods]
     K --> L([Select: Isolation Forest])
     L --> M[Remove & re-impute]
-    M --> N{Transform data}
+    M --> N
     N --> O[Evaluate transforms]
-    O --> P{Variable Selection}
+    O --> P
     P --> Q[Exclude rMAD > 30%]
     Q --> R([End: Clean Data])
 
-    %% Styling with green shades
-    classDef start fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    classDef process fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
-    classDef decision fill:#81c784,stroke:#2e7d32,stroke-width:2px
-    classDef selection fill:#4caf50,stroke:#2e7d32,stroke-width:2px,color:#fff
-    
-    %% Apply styles
-    class A,R start
-    class B,C,D,E,G1,G2,H,K,M,O,Q process
-    class F,J,N,P decision
-    class I,L selection
+    %% Styling
+    classDef majorStep fill:#1b5e20,stroke:#1b5e20,stroke-width:2px,color:#fff
+    classDef process fill:#c8e6c9,stroke:#2e7d32,stroke-width:1px
+    classDef selection fill:#4caf50,stroke:#2e7d32,stroke-width:1px,color:#fff
+    classDef endpoint fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
 
-    %% Edge styling
-    linkStyle default stroke:#2e7d32,stroke-width:1px
+    %% Apply styles
+    class A,F,J,N,P majorStep
+    class B,C,D,E,G1,G2,H,K,M,O,Q process
+    class I,L selection
+    class R endpoint
 ```
 
 
