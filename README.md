@@ -244,17 +244,18 @@ Our metabolomics data analysis pipeline consists of four major phases, with comp
     R --> S[Exclude variables with rMAD > 30%]
     S --> T([End: Clean Data])
 
-    %% Styling
-    classDef majorStep fill:#1a472a,stroke:#1a472a,stroke-width:3px,color:#fff
-    classDef process fill:#afdbc5,stroke:#2d6a4f,stroke-width:1px
-    classDef selection fill:#95d5b2,stroke:#2d6a4f,stroke-width:1px
-    classDef endpoint fill:#d8f3dc,stroke:#2d6a4f,stroke-width:2px
+    %% Styling major steps (dark green)
+    style A fill:#2e7d32,stroke:#1b5e20,stroke-width:3px,color:#fff
+    style F fill:#2e7d32,stroke:#1b5e20,stroke-width:3px,color:#fff
+    style J fill:#2e7d32,stroke:#1b5e20,stroke-width:3px,color:#fff
+    style O fill:#2e7d32,stroke:#1b5e20,stroke-width:3px,color:#fff
+    style R fill:#2e7d32,stroke:#1b5e20,stroke-width:3px,color:#fff
 
-    %% Apply styles to nodes
-    class A,F,J,O,R majorStep
-    class B,C,D,E,G1,G2,H,H1,H2,H3,H4,K,L,L1,L2,L3,N,P,Q,Q1,Q2,Q3,S process
-    class I,M selection
-    class T endpoint
+    %% Styling endpoint (lightest green)
+    style T fill:#f1f8f1,stroke:#2e7d32,stroke-width:2px
+
+    %% Styling edges
+    linkStyle default stroke:#2e7d32,stroke-width:1px
 ```
 
 
