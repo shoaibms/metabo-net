@@ -211,45 +211,50 @@ Our metabolomics data analysis pipeline consists of four major phases, with comp
 
 ## Detailed Preprocessing Workflow
 ```mermaid
-    graph TD
-    %% Major Steps (darker green)
-    A([Raw Data])
-    F{Impute missing data}
-    J{Outlier detection}
-    N{Data Transformation}
-    P{Variable Selection}
-
-    %% Substeps and connections
-    A --> B[Keep columns with ≥3 replicates]
+   graph TD
+    %% Major Steps with darker shades
+    A([Raw Data]) --> B[Keep columns with ≥3 replicates]
     B --> C[Visualize missing values]
-    C --> D[Test for MCAR]
-    D --> E[Test for MAR]
-    E --> F
+    C --> D[Test for MCAR<br>Little's MCAR test]
+    D --> E[Test for MAR<br>Logistic Regression]
+    E --> F{Impute missing data}
     F --> |R|G1[Random Forest, PMM]
-    F --> |Python|G2[kNN, Median, SVD]
-    G1 & G2 --> H[Evaluate methods]
-    H --> I([Select: Random Forest])
-    I --> J
-    J --> K[Evaluate methods]
-    K --> L([Select: Isolation Forest])
-    L --> M[Remove & re-impute]
-    M --> N
-    N --> O[Evaluate transforms]
-    O --> P
-    P --> Q[Exclude rMAD > 30%]
-    Q --> R([End: Clean Data])
+    F --> |Python|G2[kNN, Median, SVD, GPR, EM]
+    G1 & G2 --> H[Evaluate imputation methods]
+    H --> H1[EMD]
+    H --> H2[Hellinger Distance]
+    H --> H3[Calculate richness, Shannon entropy,<br>Simpson's diversity index, & sparsity]
+    H --> H4[Visualizations: Q-Q, ECDF, KDE plots]
+    H1 & H2 & H3 & H4 --> I[Select best method:<br>Random Forest]
+    I --> J{Outlier detection}
+    J --> K[Methods: Z-Score, IQR, Isolation Forest,<br>Elliptic Envelope, Mahalanobis, Robust PCA]
+    K --> L[Evaluate outlier detection methods]
+    L --> L1[PCA and t-SNE visualizations]
+    L --> L2[Plots of 30 most impacted variables]
+    L --> L3[Number of outliers per method]
+    L1 & L2 & L3 --> M[Select method: Isolation Forest]
+    M --> N[Remove outliers and<br>impute with Random Forest]
+    N --> O{Data Transformation}
+    O --> P[Methods: Log, Square Root, Box-Cox,<br>Yeo-Johnson, asinh, glog, Anscombe]
+    P --> Q[Evaluate transformations]
+    Q --> Q1[Metrics: CV, MA-transform,<br>RSD, rMAD]
+    Q --> Q2[Normality tests:<br>Shapiro-Wilk, Anderson-Darling]
+    Q --> Q3[Visualize: Density plots]
+    Q1 & Q2 & Q3 --> R{Variable Selection}
+    R --> S[Exclude variables with rMAD > 30%]
+    S --> T([End: Clean Data])
 
     %% Styling
-    classDef majorStep fill:#1b5e20,stroke:#1b5e20,stroke-width:2px,color:#fff
-    classDef process fill:#c8e6c9,stroke:#2e7d32,stroke-width:1px
-    classDef selection fill:#4caf50,stroke:#2e7d32,stroke-width:1px,color:#fff
-    classDef endpoint fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    classDef majorStep fill:#0a2f0a,stroke:#0a2f0a,stroke-width:3px,color:#fff
+    classDef process fill:#e8f5e9,stroke:#81c784,stroke-width:1px
+    classDef selection fill:#c8e6c9,stroke:#81c784,stroke-width:1px
+    classDef endpoint fill:#f1f8f1,stroke:#81c784,stroke-width:2px
 
-    %% Apply styles
-    class A,F,J,N,P majorStep
-    class B,C,D,E,G1,G2,H,K,M,O,Q process
-    class I,L selection
-    class R endpoint
+    %% Apply styles to nodes
+    class A,F,J,O,R majorStep
+    class B,C,D,E,G1,G2,H,H1,H2,H3,H4,K,L,L1,L2,L3,N,P,Q,Q1,Q2,Q3,S process
+    class I,M selection
+    class T endpoint
 ```
 
 
